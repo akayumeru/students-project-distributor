@@ -42,14 +42,8 @@
 git clone https://github.com/akayumeru/students-project-distributor.git
 ```
 
-2. Установите Poetry (если нет):
+2. Установите зависимости:
 
 ```bash
-pip install poetry
-```
-
-3. Установите зависимости:
-
-```bash
-poetry install
+pip install -r requirements.txt
 ```
