@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Загрузка TSV файла</title>
+    <link rel="stylesheet" href="./styles/style.css">
+    <script src="./scripts/main.js" type="module"></script>
+</head>
+<body>
+    <h1>Загрузка TSV файла</h1>
+
+    <div class="upload-container">
+        <input type="file" id="file-input" accept=".tsv" />
+        <button class="upload-btn" id="select-file-btn">
+            Выберите TSV файл
+        </button>
+        <div id="file-name">Файл не выбран</div>
+    </div>
+
+    <button class="upload-btn" id="upload-btn" disabled>Отправить на сервер</button>
+
+    <div id="response"></div>
+</body>
+</html>
