@@ -32,7 +32,7 @@ class TeamProcessor:
 
     def _collect_students_info(self, rows):
         for row in rows:
-            # Получаем github-логины всех участников (включая отправителя)
+            # Получаем github-логины всех участников
             github_logins = row.get('github-логины коллег по проекту через запятую', '').split(',')
             for login in github_logins:
                 login = login.strip()
@@ -43,7 +43,7 @@ class TeamProcessor:
         for row in rows:
             team_data = self._parse_team_row(row)
 
-            # Все github-логины в списке - это участники команды
+            # github-логины в списке - участники команды
             team_size = len(team_data['team_members'])
 
             if team_size > 5:
@@ -72,7 +72,7 @@ class TeamProcessor:
         projects = [p.strip() for p in projects_str.split(',') if p.strip()]
 
         # Проверяем, указаны ли все проекты (условно, что всего их 25)
-        all_projects_listed = len(projects) >= 25  # В примере указано 25 проектов
+        all_projects_listed = len(projects) >= 25  
 
         # Получаем время отправки
         submission_time = row.get('Время создания', '')
@@ -140,8 +140,8 @@ class TeamProcessor:
             all_projects.update(team['projects'])
 
         if not all_projects:
-            # Если проекты не указаны, создаем список от 1 до 26 (как в примере)
-            all_projects = set(str(i) for i in range(1, 27))
+            # Если проекты не указаны, создаем список от 1 до 25
+            all_projects = set(str(i) for i in range(1, 26))
 
         assigned_projects = set()
 
@@ -191,5 +191,6 @@ class TeamProcessor:
                 'team_members': team['team_members'],
                 'assigned_project': team.get('assigned_project', 'random')
             })
+
 
         return result
