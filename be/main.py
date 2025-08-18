@@ -31,7 +31,9 @@ async def assign_student_projects(file: UploadFile = File(...)):
         rows: List[Dict] = [row for row in tsv_reader]
 
         # Здесь можно добавить обработку данных
-        # Например, сохранить в базу данных или выполнить анализ
+        # Обрабатываем данные
+        processor = TeamProcessor()
+        result = processor.process_teams(rows)
 
         return {
             "filename": file.filename,
