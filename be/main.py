@@ -37,10 +37,8 @@ async def assign_student_projects(file: UploadFile = File(...)):
         result = processor.process_teams(rows)
 
         return {
-            "filename": file.filename,
-            "content_type": file.content_type,
-            "rows_count": len(rows),
-            "first_row": rows[0] if rows else None,
+            "result": result,
+            "rows_processed": len(rows),
             "detail": "Файл успешно обработан"
         }
 
