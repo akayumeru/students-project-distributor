@@ -1,5 +1,7 @@
 import random
 from datetime import datetime
+import re
+
 
 
 class TeamProcessor:
@@ -35,7 +37,7 @@ class TeamProcessor:
             # Получаем github-логины всех участников
             github_logins = row.get('github-логины коллег по проекту через запятую', '').split(',')
             for login in github_logins:
-                login = login.strip()
+                login = re.sub(r'\s+', ' ', login.strip())
                 if login:
                     self.all_students.add(login)
 
@@ -65,14 +67,22 @@ class TeamProcessor:
     def _parse_team_row(self, row):
         # Получаем github-логины всех участников команды
         github_logins = row.get('github-логины коллег по проекту через запятую', '').split(',')
-        team_members = [login.strip() for login in github_logins if login.strip()]
+        team_members = []
+        for login in github_logins:
+            normalized_login = re.sub(r'\s+', ' ', login.strip())
+            if normalized_login:
+                team_members.append(normalized_login)
 
         # Получаем список проектов
         projects_str = row.get('Я хочу работать над проектом...', '')
-        projects = [p.strip() for p in projects_str.split(',') if p.strip()]
+        projects = []
+        if projects_str:
+            # Разделяем по различным разделителям и нормализуем
+            split_projects = re.split(r'[,\s\t]+', projects_str)
+            projects = [re.sub(r'\s+', ' ', p.strip()) for p in split_projects if p.strip()]
 
         # Проверяем, указаны ли все проекты (условно, что всего их 25)
-        all_projects_listed = len(projects) >= 25  
+        all_projects_listed = len(projects) >= 25
 
         # Получаем время отправки
         submission_time = row.get('Время создания', '')
