@@ -186,14 +186,14 @@ class TeamProcessor:
             result['valid_teams'].append({
                 'team_members': team['team_members'],
                 'assigned_project': team.get('assigned_project', 'random'),
-                'submission_time': team['submission_time'].strftime('%Y-%m-%d %H:%M:%S')
+                'submission_time': team['submission_time'].strftime('%d.%m.%Y %H:%M:%S'')
             })
 
         for team in self.invalid_teams:
             result['invalid_teams'].append({
                 'team_members': team['team_members'],
                 'assigned_project': team.get('assigned_project', 'random'),
-                'submission_time': team['submission_time'].strftime('%Y-%m-%d %H:%M:%S')
+                'submission_time': team['submission_time'].strftime('%d.%m.%Y %H:%M:%S')
             })
 
         for team in self.other_teams:
@@ -204,3 +204,4 @@ class TeamProcessor:
 
 
         return result
+
