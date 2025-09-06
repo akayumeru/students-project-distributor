@@ -1,25 +1,37 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Загрузка TSV файла</title>
-    <link rel="stylesheet" href="./styles/style.css">
-    <script src="./scripts/main.js" type="module"></script>
+  <meta charset="UTF-8">
+  <title>Распределение студентов по проектам</title>
+  <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
-    <h1>Загрузка TSV файла</h1>
+  <h1>Распределение студентов по проектам</h1>
+  
+  <div class="controls">
+    <input type="file" id="fileInput" accept=".csv,.xlsx">
+    <button onclick="refreshData()">Обновить результаты</button>
+  </div>
 
-    <div class="upload-container">
-        <input type="file" id="file-input" accept=".tsv" />
-        <button class="upload-btn" id="select-file-btn">
-            Выберите TSV файл
-        </button>
-        <div id="file-name">Файл не выбран</div>
+  <div class="stats">
+    <div>Всего студентов: <span id="totalStudents">0</span></div>
+    <div>Всего команд: <span id="totalTeams">0</span></div>
+    <div>Полные команды: <span id="fullTeams">0</span></div>
+    <div>Неполные команды: <span id="incompleteTeams">0</span></div>
+  </div>
+
+  <div class="tables">
+    <div class="table-block" style="grid-column: span 2;">
+      <h3>Все команды</h3>
+      <table id="otherTable">
+        <thead>
+          <tr><th>Время подачи</th><th>Участники</th><th>Распределённый проект</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
     </div>
+  </div>
 
-    <button class="upload-btn" id="upload-btn" disabled>Отправить на сервер</button>
-
-    <div id="response"></div>
+  <script src="scripts/main.js"></script>
 </body>
 </html>
