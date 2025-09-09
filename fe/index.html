@@ -5,8 +5,13 @@
   <title>Распределение студентов по проектам</title>
   <link rel="stylesheet" href="styles/style.css">
 </head>
-<body>
-  <h1>Распределение студентов по проектам</h1>
+<body data-bs-theme="light">
+    <header>
+        <h1>Распределение студентов</h1>
+        <button id="theme-toggle">🌙 Тёмная тема</button>
+    </header>
+
+<main>
   
   <div class="controls">
     <input type="file" id="fileInput" accept=".csv,.xlsx">
@@ -51,6 +56,7 @@
       </table>
     </div>
   </div>
+  </main>
 
   <script src="scripts/main.js"></script>
 </body>

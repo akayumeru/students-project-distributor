@@ -1,3 +1,20 @@
+document.addEventListener("DOMContentLoaded", () => {
+  const btn = document.getElementById("theme-toggle");
+  const body = document.body;
+
+  btn.addEventListener("click", () => {
+    const currentTheme = body.getAttribute("data-bs-theme");
+    if (currentTheme === "dark") {
+      body.setAttribute("data-bs-theme", "light");
+      btn.textContent = "🌙 Тёмная тема";
+    } else {
+      body.setAttribute("data-bs-theme", "dark");
+      btn.textContent = "☀️ Светлая тема";
+    }
+  });
+});
+
+
 // Демоданные
 const demoData = {
   stats: {students: 0, teams: 0, full: 0, incomplete: 0},
