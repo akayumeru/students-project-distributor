@@ -1,25 +1,63 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Загрузка TSV файла</title>
-    <link rel="stylesheet" href="./styles/style.css">
-    <script src="./scripts/main.js" type="module"></script>
+  <meta charset="UTF-8">
+  <title>Распределение студентов по проектам</title>
+  <link rel="stylesheet" href="styles/style.css">
 </head>
-<body>
-    <h1>Загрузка TSV файла</h1>
+<body data-bs-theme="light">
+    <header>
+        <h1>Распределение студентов</h1>
+        <button id="theme-toggle">🌙 Тёмная тема</button>
+    </header>
 
-    <div class="upload-container">
-        <input type="file" id="file-input" accept=".tsv" />
-        <button class="upload-btn" id="select-file-btn">
-            Выберите TSV файл
-        </button>
-        <div id="file-name">Файл не выбран</div>
+<main>
+
+  <div class="controls">
+    <input type="file" id="fileInput" accept=".csv,.tsv">
+    <button onclick="refreshData()">Обновить результаты</button>
+  </div>
+
+  <div class="stats">
+    <div>Всего студентов: <span id="totalStudents">0</span></div>
+    <div>Всего команд: <span id="totalTeams">0</span></div>
+    <div>Полные команды: <span id="fullTeams">0</span></div>
+    <div>Неполные команды: <span id="incompleteTeams">0</span></div>
+  </div>
+
+  <div class="tables">
+    <div class="table-block">
+      <h3>Заполнившие форму корректно</h3>
+      <table id="correctTable">
+        <thead>
+          <tr><th>Время подачи</th><th>Участники</th><th>Распределённый проект</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
     </div>
 
-    <button class="upload-btn" id="upload-btn" disabled>Отправить на сервер</button>
+    <div class="table-block">
+      <h3>Заполнившие форму некорректно</h3>
+      <table id="incorrectTable">
+        <thead>
+          <tr><th>Время подачи</th><th>Участники</th><th>Распределённый проект</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
 
-    <div id="response"></div>
+    <div class="table-block" style="grid-column: span 2;">
+      <h3>Неполные команды</h3>
+      <table id="otherTable">
+        <thead>
+          <tr><th>Время подачи</th><th>Участники</th><th>Распределённый проект</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+  </main>
+
+  <script src="scripts/main.js"></script>
 </body>
 </html>
