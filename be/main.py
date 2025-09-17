@@ -12,13 +12,13 @@ from tsv_validator import validate_tsv
 app = FastAPI()
 
 # Настройка CORS (для разработки)
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],  # В продакшене укажите конкретные домены
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+# app.add_middleware(
+#     CORSMiddleware,
+#     allow_origins=["*"],
+#     allow_credentials=True,
+#     allow_methods=["*"],
+#     allow_headers=["*"],
+# )
 
 @app.post("/api/student-projects/assign")
 async def assign_student_projects(file: UploadFile = File(...)):
