@@ -3,7 +3,6 @@ from datetime import datetime
 import re
 
 
-
 class TeamProcessor:
     def __init__(self):
         self.teams = []
@@ -186,7 +185,7 @@ class TeamProcessor:
             result['valid_teams'].append({
                 'team_members': team['team_members'],
                 'assigned_project': team.get('assigned_project', 'random'),
-                'submission_time': team['submission_time'].strftime('%d.%m.%Y %H:%M:%S'')
+                'submission_time': team['submission_time'].strftime('%d.%m.%Y %H:%M:%S')
             })
 
         for team in self.invalid_teams:
@@ -202,6 +201,4 @@ class TeamProcessor:
                 'assigned_project': team.get('assigned_project', 'random')
             })
 
-
         return result
-
