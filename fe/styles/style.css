@@ -96,8 +96,6 @@ button, input[type="file"] {
   border: 1px solid var(--bs-border-color);
   border-radius: 6px;
   cursor: pointer;
-  background: var(--bs-link-color);
-  color: #fff;
   transition: background-color 150ms ease;
 }
 
