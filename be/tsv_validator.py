@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 import csv
 import re
 from dataclasses import dataclass
@@ -16,9 +14,6 @@ except Exception:  # pragma: no cover
     EMAIL_REGEX = re.compile(r"^[^@\s]+@[^@\s]+\.[^@\s]+$")
 
 DATETIME_FMT = "%Y-%m-%d %H:%M:%S"
-
-SCHEMA = ["number", "datetime", "email", "text1", "text2", "text3", "text4"]
-
 
 @dataclass
 class RowError:
@@ -50,7 +45,6 @@ class ValidationResult:
     def as_dict(self) -> Dict[str, Any]:
         return {
             "ok": self.ok,
-            "schema": SCHEMA,
             "rows_total": self.rows_total,
             "rows_valid": self.rows_valid,
             "rows_invalid": self.rows_invalid,
@@ -86,8 +80,8 @@ def _is_email(s: str) -> bool:
         return bool(EMAIL_REGEX.match(s))
 
 
-def validate_tsv(text: str) -> Dict[str, Any]:
-    text = text.replace("\r\n", "\n").replace("\r", "\n")
+def validate_tsv(contents: str) -> Dict[str, Any]:
+    text = contents.replace("\r\n", "\n").replace("\r", "\n")
 
     reader = csv.reader(text.splitlines(), delimiter="\t")
     errors: List[RowError] = []

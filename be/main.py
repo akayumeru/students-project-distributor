@@ -3,6 +3,9 @@ from fastapi.middleware.cors import CORSMiddleware
 import csv
 from io import StringIO
 from typing import List, Dict
+
+from fastapi.responses import JSONResponse
+
 from processor import TeamProcessor
 from tsv_validator import validate_tsv
 
@@ -20,7 +23,7 @@ app.add_middleware(
 @app.post("/api/student-projects/assign")
 async def assign_student_projects(file: UploadFile = File(...)):
     # Проверяем, что файл TSV
-    if not file.filename.endswith('.tsv'):
+    if not file.filename.endswith(('.tsv', '.csv')):
         raise HTTPException(status_code=400, detail="Файл должен быть в формате TSV")
 
     try:
@@ -31,7 +34,7 @@ async def assign_student_projects(file: UploadFile = File(...)):
         validation_result = validate_tsv(content_str)
 
         if not validation_result["ok"]:
-            raise HTTPException(status_code=422, detail=validation_result)
+            return JSONResponse(status_code=422, content=validation_result)
 
         # Парсим TSV
         tsv_reader = csv.DictReader(StringIO(content_str), delimiter='\t')
