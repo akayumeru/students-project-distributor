@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 import csv
 from io import StringIO
 from typing import List, Dict
+from processor import TeamProcessor
 
 app = FastAPI()
 
@@ -31,13 +32,13 @@ async def assign_student_projects(file: UploadFile = File(...)):
         rows: List[Dict] = [row for row in tsv_reader]
 
         # Здесь можно добавить обработку данных
-        # Например, сохранить в базу данных или выполнить анализ
+        # Обрабатываем данные
+        processor = TeamProcessor()
+        result = processor.process_teams(rows)
 
         return {
-            "filename": file.filename,
-            "content_type": file.content_type,
-            "rows_count": len(rows),
-            "first_row": rows[0] if rows else None,
+            "result": result,
+            "rows_processed": len(rows),
             "detail": "Файл успешно обработан"
         }
 
