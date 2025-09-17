@@ -4,6 +4,7 @@ import csv
 from io import StringIO
 from typing import List, Dict
 from processor import TeamProcessor
+from tsv_validator import validate_tsv
 
 app = FastAPI()
 
@@ -26,6 +27,11 @@ async def assign_student_projects(file: UploadFile = File(...)):
         # Читаем содержимое файла
         contents = await file.read()
         content_str = contents.decode('utf-8')
+
+        validation_result = validate_tsv(content_str)
+
+        if not validation_result["ok"]:
+            raise HTTPException(status_code=422, detail=validation_result)
 
         # Парсим TSV
         tsv_reader = csv.DictReader(StringIO(content_str), delimiter='\t')
