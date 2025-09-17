@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", () => {
   const btn = document.getElementById("theme-toggle");
   const body = document.body;
@@ -15,19 +16,16 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-// Демоданные
 const demoData = {
   stats: {students: 0, teams: 0, full: 0, incomplete: 0},
 };
 
 function loadDemo() {
-  // обновляем статистику
   document.getElementById("totalStudents").textContent = demoData.stats.students;
   document.getElementById("totalTeams").textContent = demoData.stats.teams;
   document.getElementById("fullTeams").textContent = demoData.stats.full;
   document.getElementById("incompleteTeams").textContent = demoData.stats.incomplete;
 
-  // заполняем таблицы
   fillTable("correctTable", demoData.correct);
   fillTable("incorrectTable", demoData.incorrect);
   fillTable("otherTable", demoData.other);
