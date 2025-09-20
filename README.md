@@ -8,6 +8,15 @@ docker run --rm -p 8080:80 ghcr.io/akayumeru/students-project-distributor:latest
 
 Docker изображение автоматически скачается из GitHub Container Registry и приложение [запустится на порту 8080](http://localhost:8080/).
 
+## Собрать образ самостоятельно
+Необходимо находиться в корневой директории проекта и запустить следующую команду:
+```shell
+# Собрать образ
+docker build -t akayumeru/students-project-distributor:latest .
+# Запустить собранный образ
+docker run --rm -p 8080:80 akayumeru/students-project-distributor:latest
+```
+
 ---
 
 ## Техническое задание
