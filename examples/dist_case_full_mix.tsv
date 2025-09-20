@@ -1,0 +1,13 @@
+ID	Время создания	Ваш email	Ваше ФИО	Я хочу работать над проектом...	github-логины коллег по проекту через запятую	Комментарий
+3000000000	2025-02-10 10:30:00	ivan.petrov@example.com	Иван Петров	5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 1, 2, 3, 4	alphaz, betaz, gammaz, deltaz, epsilonz	teamA — корректная заявка
+3000000001	2025-02-10 10:32:00	maria.sidorova@example.com	Мария Сидорова	9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 1, 2, 3, 4, 5, 6, 7, 8	neoowl, skyfox, artden, kvit, morningstar	teamB — корректная заявка
+3000000002	2025-02-10 10:34:00	pavel.ivanov@example.com	Павел Иванов	12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11	frosty1, frosty2, frosty3, frosty4, frosty5	teamC — корректная заявка
+3000000003	2025-02-10 10:36:00	olga.kozlova@example.com	Ольга Козлова	20, 21, 22, 23, 24, 25, 26, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19	crane01, crane02, crane03, crane04, crane05	teamD — корректная заявка
+3000000004	2025-02-10 10:45:00	sergey.kuznetsov@example.com	Сергей Кузнецов	3, 7, 12, 5, 1	lion1, lion2, lion3, lion4, lion5	partial prefs
+3000000005	2025-02-10 10:46:30	anna.volkova@example.com	Анна Волкова		owl1, owl2, owl3, owl4, owl5	empty prefs -> random
+3000000006	2025-02-10 10:47:15	nikita.smirnov@example.com	Никита Смирнов	14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13	nano1, nano2, nano3	team size < 5
+3000000007	2025-02-10 10:48:00	yulia.nikitina@example.com	Юлия Никитина	2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 1	mega1, mega2, mega3, mega4, mega5, mega6	team size > 5
+3000000008	2025-02-10 10:52:00	other_a@example.com	Другой из TeamA	6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 1, 2, 3, 4, 5	alphaz, betaz, gammaz, deltaz, epsilonz	duplicate of teamA
+3000000009	2025-02-10 10:53:00	maria.sidorova@example.com	Мария Сидорова	9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 1, 2, 3, 4, 5, 6, 7, 8	neoowl, skyfox, artden, kvit, morningstar	duplicate by same person
+3000000010	2025-02-10 10:55:00	roman.volkov@example.com	Роман Волков	7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 1, 2, 3, 4, 5, 6	tide1, tide2, tide3, tide4, tide5	more correct
+3000000011	2025-02-10 10:56:00	alena.morozova@example.com	Алёна Морозова	1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26	pine1, pine2, pine3, pine4, pine5	more correct
